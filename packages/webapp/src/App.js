@@ -3,34 +3,43 @@ import Gallery from './containers/Gallery';
 import logo from './logo.svg';
 import './App.css';
 
+const Spinner = () => {
+  return (
+    <div className="Spinner">
+        Loading...
+    </div>
+  );
+};
 class App extends Component {
   state = {
-    images: []
+    images: [],
+    loading: false,
   }
 
-  constructor(props) {
-    super(props);
-    this.props.bridge.expensive(1000).then( count => {
-      console.log(`Ran ${count} loops`)
-    })
-  }
+  componentWillMount() {
+    // now we just convert this to a redux action wrapped call and we're golden!
 
-  componentDidMount() {
-    fetch('/gallery/all')
-      .then(res => res.json())
-      .then(images=> this.setState({ images}));
+    this.setState({ loading: true });
+    this.props.bridge.fetchData().then((images) => {
+      console.log('YOU DID IT!')
+      this.setState({ images, loading: false });
+    });
   }
 
   render() {
+    const { loading } = this.state;
     return (
       <div className="App">
         <header className="App-header">
           <h1>Gallery Worker Example</h1>
         </header>
         <div>
+          { loading ?
+          <Spinner /> :
           <ul>
             <Gallery images={this.state.images} />
           </ul>
+          }
         </div>
       </div>
     );

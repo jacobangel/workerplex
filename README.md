@@ -2,7 +2,7 @@
 
 Some simple goals:
 
-- demonstrate an example architecture of `Render UI` => `Worker State`=> `Service Worker`=> `Persisted Server`
+- demonstrate an example architecture of `Render UI` <=> `Worker State` <=> `Service Worker` <=> `Persisted Server`
 - dockerize it
 - learn something
 

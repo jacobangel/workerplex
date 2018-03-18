@@ -5,3 +5,8 @@ export function expensive(time) {
 	while (Date.now() - start < time) count++
 	return count
 }
+
+export function fetchData() {
+	return fetch('/gallery/all')
+	  .then(res => res.json());
+}

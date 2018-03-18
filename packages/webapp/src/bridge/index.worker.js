@@ -1,12 +1,13 @@
+import { createStore } from 'redux';
+import reducers from './reducers';
 
-export function expensive(time) {
-	let start = Date.now(),
-		count = 0
-	while (Date.now() - start < time) count++
-	return count
-}
-
-export function fetchData() {
+export function fetchState() {
 	return fetch('/gallery/all')
-	  .then(res => res.json());
+		.then(res => res.json())
+}
+let store = createStore(reducers);
+
+export function getState() {
+
+	return store.getState();
 }

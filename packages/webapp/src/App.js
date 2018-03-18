@@ -18,12 +18,7 @@ class App extends Component {
 
   componentWillMount() {
     // now we just convert this to a redux action wrapped call and we're golden!
-
-    this.setState({ loading: true });
-    this.props.bridge.fetchData().then((images) => {
-      console.log('YOU DID IT!')
-      this.setState({ images, loading: false });
-    });
+    this.props.onConnect();
   }
 
   render() {

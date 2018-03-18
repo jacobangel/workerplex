@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { removeImage } from '../bridge/actions';
+
 import './Gallery.css';
 
 import './Image.css';
@@ -16,6 +19,10 @@ const Image = ({ src, id, desc }) => {
 }
 
 class Gallery extends Component {
+  componentDidMount() {
+
+  }
+
   render() {
     const { images } = this.props;
 
@@ -33,4 +40,16 @@ class Gallery extends Component {
   }
 }
 
-export default Gallery;
+const mapStateToProps = state => {
+  console.log('stat', state);
+  return { images: [...state.appState.images] }
+};
+ 
+const mapDispatchToProps = dispatch => ({
+  removeImages: id => dispatch(removeImage(id))
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Gallery);

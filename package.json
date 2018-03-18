@@ -1,0 +1,20 @@
+{
+  "name": "workerplex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo \"Error: no build task specified\" && exit 1",
+    "cra": "create-react-app",
+    "docs": "echo \"Error: no doc task specified\" && exit 1",
+    "lerna": "lerna",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "create-react-app": "^1.5.2",
+    "lerna": "^2.9.0"
+  }
+}

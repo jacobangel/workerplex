@@ -8,6 +8,13 @@ class App extends Component {
     images: []
   }
 
+  constructor(props) {
+    super(props);
+    this.props.bridge.expensive(1000).then( count => {
+      console.log(`Ran ${count} loops`)
+    })
+  }
+
   componentDidMount() {
     fetch('/gallery/all')
       .then(res => res.json())

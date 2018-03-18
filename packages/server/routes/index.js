@@ -6,4 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/random', function(req, res, next) {
+  res.json({ data: { a: 1 }});
+});
 module.exports = router;

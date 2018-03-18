@@ -1,0 +1,22 @@
+
+.gallery-list {
+  list-style: none;
+  padding: 0;
+}
+
+
+.gallery-list li {
+  margin: 0;
+  padding: 11px 22px;
+  max-width: 100%;
+  min-width: 200px;
+  border-bottom: 1px solid #ccc;
+}
+
+.gallery-list li:last-child {
+  border-bottom: none;
+}
+
+.gallery-list img {
+  width: 100%;
+}

@@ -19,9 +19,7 @@ const Image = ({ src, id, desc }) => {
 }
 
 class Gallery extends Component {
-  componentDidMount() {
-
-  }
+  componentDidMount() { }
 
   render() {
     const { images } = this.props;
@@ -29,9 +27,9 @@ class Gallery extends Component {
     return (
       <div className="gallery">
         <ul className="gallery-list">
-          {images.map(({ src, id, desc }) => {
+          {images.map(({ src, id, desc }, i) => {
             return (
-              <Image src={src} id={id} desc={desc} key={id}/>
+              <Image src={src} id={id} desc={desc} key={`${i}-${id}`}/>
             );
           })}
         </ul>

@@ -1,4 +1,3 @@
-import { fetchGallery } from './actions';
 import { combineReducers } from 'redux'
 import { FETCH_STATE, FETCH_STATE_SUCCESS } from './actions';
 

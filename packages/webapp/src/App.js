@@ -21,6 +21,10 @@ class App extends Component {
     this.props.onConnect();
   }
 
+  componentWillUnmount() {
+    // this.props.disconnect?
+  }
+
   render() {
     const { loading } = this.state;
     return (

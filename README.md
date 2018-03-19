@@ -14,3 +14,5 @@ Some simple goals:
 - Demonstrate how the worker can talk to the service worker to leverage offline caching scenarios
 - This is ideally very interface driven. how do we share those without coupling too much.
 
+- Okay, starting to get my head around what exactly we're doing here. Need to further formalize the relationship between the client and bridge redux instances.
+

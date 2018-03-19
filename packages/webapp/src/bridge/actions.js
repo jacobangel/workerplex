@@ -9,18 +9,9 @@ export function removeImage(id) {
   }
 }
 
-export function fetchGallery() {
+export function fetchGallery(gallery) {
   return {
     type: FETCH_GALLERIES,
+    gallery
   };
 }
-
-export function fetchGalleryAsync() {
-  return dispatch => {
-    setTimeout(() => {
-      // Yay! Can invoke sync or async actions with `dispatch`
-      dispatch(fetchGallery());
-    }, 1000);
-  };
-}
-

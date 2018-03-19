@@ -11,18 +11,25 @@ import { fetchState, fetchStateSuccess } from './client/actions';
 import worker from './bridge/index.worker.js';
 const bridge = worker();
 
-let store = createStore(reducers);
+let clientStore = createStore(reducers);
 
 bridge.getState().then((startingState) => {
-  store.dispatch(fetchState(startingState));
+  clientStore.dispatch(fetchStateSuccess(startingState));
 })
 
+bridge.onmessage = e => {
+  console.log('got one pack', e);
+  if (e.data.type === 'STATE_UPDATE' ){
+    clientStore.dispatch(fetchStateSuccess({ images: [ ...e.data.data ] } ));
+  }
+};
+
 ReactDOM.render((
-  <Provider store={store}>
+  <Provider store={clientStore}>
     <App onConnect={() => {
       bridge.fetchState().then((images) => {
         console.log(images);
-        store.dispatch(fetchStateSuccess({ images }))
+        clientStore.dispatch(fetchStateSuccess({ images }))
       });
     }} />
   </Provider>
